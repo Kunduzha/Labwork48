@@ -1,1 +1,16 @@
-class GoodAdmin(
+
+{% extends "base.html" %}
+{% block menu %}
+    <li><a href="{% url "add_good" %}">Добавить товар</a></li>
+    <li><a href="{% url "change_good" good.id %}">Изменить товар</a></li>
+    <li><a href="{% url "del_good" good.id %}">Удалить товар</a></li>
+{% endblock menu %}
+{% block page_header %}Товар {{ good.id }}{% endblock page_header %}
+{% block content %}
+    <p>Name: {{ good.title }}</p>
+    <p>Price: {{ good.price }}</p>
+    <p>Category: {{ good.category }}</p>
+    <p>Description: {{ good.description }}</p>
+    <p>Remainder: {{ good.remainder }}</p>
+{% endblock content %}
+
