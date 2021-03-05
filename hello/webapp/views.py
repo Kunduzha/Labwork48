@@ -40,8 +40,37 @@ def good_add(request):
 
 
 
-def good_change():
-    pass
+
+
+def good_change(request, pk):
+    """
+    Представление для редактирования статьи
+    """
+    good = get_object_or_404(Good, id=pk)  # получаем статью
+
+    if request.method == 'GET':  # если метод запроса GET
+        form = Goodform(initial={  # создадим форму со стартоввыми данными полей, соответствующими данным полей статьи
+            'name': good.name,
+            'category': good.category,
+            'description': good.description,
+            'remainder': good.remainder,
+            'price': good.price
+
+        })
+        return render(request, 'change_good.html', context={'form': form, 'good': good})  # и отобразим форму редактирования статьи
+    elif request.method == 'POST':  # Если метод запроса POST
+        form = Goodform(data=request.POST)  # Создадим объект формы, в него передадим данные из формы, которые пришли от клиента
+        if form.is_valid():
+            good.name = form.cleaned_data.get('name')
+            good.category = form.cleaned_data.get('category')
+            good.description = form.cleaned_data.get('description')
+            good.remainder = form.cleaned_data.get('remainder')
+            good.price = form.cleaned_data.get('price')
+            good.save()
+            return redirect('see_good', pk=good.id)  # после сохранения статьи перенаправим на страницу просмотра статьи
+
+        return render(request, 'change_good.html', context={'form': form, 'good': good})  # если форма не валидна - отобразим форму с ошибками
+
 
 def good_delete():
     pass
