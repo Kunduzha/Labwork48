@@ -20,8 +20,8 @@ from webapp.views import main_page, good_more, good_add, good_change, good_delet
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main_page, name='all_page'),
-    path('more/', good_more, name='see_good'),
+    path('more/<int:pk>/', good_more, name='see_good'),
     path('add/', good_add, name='add_good'),
-    path('edit/', good_change, name='change_good'),
-    path('delete/', good_more, name='see_good')
+    path('edit/<int:pk>/', good_change, name='change_good'),
+    path('delete/<int:pk>/', good_more, name='del_good')
 ]

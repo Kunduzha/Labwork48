@@ -9,7 +9,7 @@
 {% block content %}
     <p>Name: {{ good.title }}</p>
     <p>Price: {{ good.price }}</p>
-    <p>Category: {{ good.category }}</p>
+    <p>Category: {{ good.get_category_display }}</p>
     <p>Description: {{ good.description }}</p>
     <p>Remainder: {{ good.remainder }}</p>
 {% endblock content %}

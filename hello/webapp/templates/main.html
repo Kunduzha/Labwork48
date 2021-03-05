@@ -8,8 +8,11 @@
         <h2>Нету товара</h2>
     {% endif %}
     {% for good in good %}
+        {% if good.remainder != 0 and good.category != 'old' %}
 
         <p>{{ good.id }}: <a href="{% url "see_good" good.id %}">{{ good.name }}</a></p>
+        {% endif %}
+
     {% endfor %}
 {% endblock content %}
 
