@@ -1,15 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
 def main_page(request):
-    if request.method=="GET":
-        return render(request, "base.html")
+    good=get_object_or_404()
+    return render(request, "base.html", {'good':good})
 
-def good_more():
-    pass
+def good_more(request, pk):
+    good = get_object_or_404(Good, id=pk)
+    return render(request, "good_more.html", {'good':good})
+
 
 def good_add():
-    pass
+    good
 
 def good_change():
     pass
