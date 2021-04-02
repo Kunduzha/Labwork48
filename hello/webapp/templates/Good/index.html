@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block menu %}<li><a href="{% url "add_good" %}">Добавить товар</a></li>{% endblock menu %}
+{% block title %}Все товары{% endblock title %}
+{% block page_header %}Товары{% endblock page_header %}
+{% block content %}
+    {% if not goods %}
+        <h2>Нету товара</h2>
+
+    {% else %}
+
+
+            {% include 'Good/../partial/simple_search.html' %}
+
+
+            {% if is_paginated %}
+
+                 {% include 'Good/pagination.html' %}
+                {% endif %}
+    {% endif %}
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">name</th>
+    </tr>
+  </thead>
+  <tbody>
+        {% for good in goods %}
+           <tr>
+        {% if good.category != 'old' %}
+
+            <th>{{ good.id }}</th>
+            <td><a href="{% url "see_good" good.id %}">{{ good.name }}</a></td>
+        {% endif %}
+          </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock content %}
+

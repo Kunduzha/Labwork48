@@ -15,13 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from webapp.views import main_page, good_more, good_add, good_change, good_delete
+from webapp.views.goods import IndexView_good, Good_more, Good_add, Good_change, Good_delete
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', main_page, name='all_page'),
-    path('more/<int:pk>/', good_more, name='see_good'),
-    path('add/', good_add, name='add_good'),
-    path('edit/<int:pk>/', good_change, name='change_good'),
-    path('delete/<int:pk>/', good_more, name='del_good')
+    path('', IndexView_good.as_view(), name='main_page'),
+    path('more/<int:pk>/', Good_more.as_view(), name='see_good'),
+    path('add/', Good_add.as_view(), name='add_good'),
+    path('edit/<int:pk>/', Good_change.as_view(), name='change_good'),
+    path('delete/<int:pk>/', Good_delete.as_view(), name='del_good')
 ]

@@ -7,7 +7,7 @@ class Good(models.Model):
     description=models.CharField(max_length=2000, null=True, blank=True, verbose_name='good_description')
     category=models.TextField(null=False, blank=False, choices=category_choice,  verbose_name='good_category')
     remainder=models.IntegerField(validators=[MinValueValidator(0)], null=False, blank=False, verbose_name='remainder' )
-    price=models.DecimalField(null=False, blank=False, max_digits=7, decimal_places=2)
+    price=models.DecimalField(validators=[MinValueValidator(0)],null=False, blank=False, max_digits=7, decimal_places=2)
 
 
     class Meta:

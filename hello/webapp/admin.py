@@ -4,11 +4,11 @@ from webapp.models import Good
 
 
 class GoodAdmin(admin.ModelAdmin):
-    good_display=['id', 'name', 'price' 'category', ]
+    good_display=['id', 'name', 'price', 'category' ]
     list_filter=['category', 'name']
     search_fields=['name']
-    fields=['id', 'name', 'category', 'price', 'description', 'remainder']
-    readonly_fields=['id']
+    fields =['id', 'name', 'category', 'price', 'description', 'remainder']
+
 
 
 admin.site.register(Good, GoodAdmin)

@@ -1,5 +1,6 @@
 
 {% extends "base.html" %}
+{% load static %}
 {% block menu %}
     <li><a href="{% url "add_good" %}">Добавить товар</a></li>
     <li><a href="{% url "change_good" good.id %}">Изменить товар</a></li>
@@ -12,5 +13,7 @@
     <p>Category: {{ good.get_category_display }}</p>
     <p>Description: {{ good.description }}</p>
     <p>Remainder: {{ good.remainder }}</p>
+
+    <img src="{% static "image/balloon.jpg" %}" alt="" class="img">
 {% endblock content %}
 
