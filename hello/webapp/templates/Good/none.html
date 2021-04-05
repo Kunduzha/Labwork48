@@ -1,0 +1,22 @@
+
+           <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Название</th>
+      <th scope="col">количество</th>
+        <th scope="col">сумма</th>
+    </tr>
+  </thead>
+      <tbody>
+                     {% for cart in carts %}
+                           <tr>
+
+
+                            <th>{{ cart.good.name }}</th>
+                            <td>{{ cart.count }}</td>
+                           <td>{{ cart.count }}*{{ cart.good.price }}</td>
+
+                          </tr>
+                     {% endfor %}
+      </tbody>
+</table>

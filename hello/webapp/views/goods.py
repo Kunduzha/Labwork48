@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.urls import reverse_lazy
-
-from webapp.models import Good
+from webapp.models import Good, GoodInCart
 from webapp.forms import Goodform
 from webapp.forms import Goodform
 from webapp.forms import Goodform, GoodDeleteForm, SimpleSearchForm
@@ -10,6 +9,9 @@ from django.db.models import Q
 from django.utils.http import urlencode
 
 # Create your views here.
+
+
+
 class IndexView_good(ListView):
     model = Good
     template_name = 'Good/index.html'
@@ -35,7 +37,7 @@ class IndexView_good(ListView):
         if self.search_value:
             query = Q(name__icontains=self.search_value)  | Q(description__icontains=self.search_value)
             queryset = queryset.filter(query)
-        return queryset
+        return queryset.order_by('category', 'name').exclude(remainder=0)
 
     def get_search_form(self):
         return SimpleSearchForm(self.request.GET)
@@ -154,3 +156,51 @@ class Good_delete(DeleteView):
     model = Good
     context_object_name = 'goods'
     success_url = reverse_lazy('main_page')
+
+
+
+class Cart(ListView):
+    template_name = 'Good/good_in_cart.html'
+    model = GoodInCart
+    context_object_name = 'carts'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        total = 0
+        for cart in GoodInCart.objects.all():
+            total+=cart.get_total()
+        kwargs['total'] = total
+        return super().get_context_data(**kwargs)
+
+
+
+class AddToCart(View):
+    def get(self, request,pk, *args, **kwargs):
+        good = get_object_or_404(Good, pk=pk)
+        if good.remainder > 0:
+            try:
+                good_cart =GoodInCart.objects.get(good=good)
+                good_cart.count +=1
+                good_cart.save()
+            except:
+                GoodInCart.objects.create(good=good, count=1)
+            good.remainder -=1
+            good.save()
+        return redirect('main_page')
+
+class DeleteFromCart(DeleteView):
+    template_name = 'Good/del_from_cart.html'
+    model = GoodInCart
+    context_object_name = 'good_in_cart'
+    success_url = reverse_lazy('main_page')
+
+    def post(self, request, *args, **kwargs):
+        cart = self.get_object()
+        good = cart.good
+        good.remainder += cart.count
+        good.save()
+        return super().post(request, *args, **kwargs)
+
+
+
+
+

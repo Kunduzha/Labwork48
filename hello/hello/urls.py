@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from webapp.views.goods import IndexView_good, Good_more, Good_add, Good_change, Good_delete
+from webapp.views.goods import IndexView_good, Good_more, Good_add, Good_change, Good_delete, AddToCart, Cart, DeleteFromCart
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,5 +23,8 @@ urlpatterns = [
     path('more/<int:pk>/', Good_more.as_view(), name='see_good'),
     path('add/', Good_add.as_view(), name='add_good'),
     path('edit/<int:pk>/', Good_change.as_view(), name='change_good'),
-    path('delete/<int:pk>/', Good_delete.as_view(), name='del_good')
+    path('delete/<int:pk>/', Good_delete.as_view(), name='del_good'),
+    path('add_to_cart/<int:pk>', AddToCart.as_view(), name = 'add_to_cart'),
+    path('in_cart/', Cart.as_view(), name = 'good_in_cart'),
+    path('delete_from_cart/<int:pk>/', DeleteFromCart.as_view(), name='del_from_cart'),
 ]
