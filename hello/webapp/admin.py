@@ -1,5 +1,7 @@
 from django.contrib import admin
-from webapp.models import Good
+from webapp.models import Good, Order
+
+
 # Register your models here.
 
 
@@ -11,4 +13,7 @@ class GoodAdmin(admin.ModelAdmin):
 
 
 
-# admin.site.register(Good, GoodAdmin)
+admin.site.register(Good, GoodAdmin)
+
+
+admin.site.register(Order)

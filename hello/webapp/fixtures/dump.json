@@ -3,9 +3,9 @@
   "model": "webapp.good",
   "pk": 1,
   "fields": {
-    "name": "молоко",
+    "name": "молочко",
     "description": "жирность 2%",
-    "category": "new",
+    "category": "old",
     "remainder": 100,
     "price": "88.00"
   }
@@ -16,8 +16,8 @@
   "fields": {
     "name": "хлеб",
     "description": "ржаное",
-    "category": "new",
-    "remainder": 50,
+    "category": "old",
+    "remainder": 49,
     "price": "20.00"
   }
 },
@@ -39,7 +39,7 @@
     "name": "сахар",
     "description": "кубики",
     "category": "new",
-    "remainder": 100,
+    "remainder": 99,
     "price": "50.00"
   }
 },
@@ -55,11 +55,161 @@
   }
 },
 {
+  "model": "webapp.good",
+  "pk": 6,
+  "fields": {
+    "name": "Капуста",
+    "description": "Овощь",
+    "category": "new",
+    "remainder": 0,
+    "price": "80.00"
+  }
+},
+{
+  "model": "webapp.good",
+  "pk": 9,
+  "fields": {
+    "name": "морковь",
+    "description": "овощь",
+    "category": "old",
+    "remainder": 6,
+    "price": "90.00"
+  }
+},
+{
+  "model": "webapp.good",
+  "pk": 10,
+  "fields": {
+    "name": "хлеб",
+    "description": null,
+    "category": "new",
+    "remainder": 0,
+    "price": "99.00"
+  }
+},
+{
+  "model": "webapp.good",
+  "pk": 11,
+  "fields": {
+    "name": "хлеб",
+    "description": null,
+    "category": "new",
+    "remainder": 0,
+    "price": "-0.02"
+  }
+},
+{
+  "model": "webapp.good",
+  "pk": 12,
+  "fields": {
+    "name": "Капуста",
+    "description": null,
+    "category": "old",
+    "remainder": 3,
+    "price": "900.00"
+  }
+},
+{
+  "model": "webapp.good",
+  "pk": 13,
+  "fields": {
+    "name": "Тося",
+    "description": "kkkkk",
+    "category": "new",
+    "remainder": 54,
+    "price": "45.00"
+  }
+},
+{
+  "model": "webapp.good",
+  "pk": 14,
+  "fields": {
+    "name": "Капуста",
+    "description": "Овощь",
+    "category": "new",
+    "remainder": 74,
+    "price": "4.00"
+  }
+},
+{
+  "model": "webapp.good",
+  "pk": 15,
+  "fields": {
+    "name": "сахар",
+    "description": null,
+    "category": "new",
+    "remainder": 77,
+    "price": "9.00"
+  }
+},
+{
+  "model": "webapp.good",
+  "pk": 16,
+  "fields": {
+    "name": "молоко",
+    "description": "kkkkkkkkk",
+    "category": "old",
+    "remainder": 5,
+    "price": "88.00"
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 1,
+  "fields": {
+    "order": 1,
+    "good": 14,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 2,
+  "fields": {
+    "order": 2,
+    "good": 13,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 3,
+  "fields": {
+    "order": 2,
+    "good": 14,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 1,
+  "fields": {
+    "created_at": "2021-04-05T11:55:11.449Z",
+    "updated_at": "2021-04-05T11:55:11.449Z",
+    "name": "xx",
+    "phonenumber": "xxx",
+    "adress": "xxx",
+    "good": []
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 2,
+  "fields": {
+    "created_at": "2021-04-05T11:57:12.462Z",
+    "updated_at": "2021-04-05T11:57:12.462Z",
+    "name": "zzzzzz",
+    "phonenumber": "zzzzzzzz",
+    "adress": "zzzzzzzz",
+    "good": []
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$216000$phYcIWdQMh0t$CSwhnYvUiYMwWcPHgpNS//Yvp6e99z/Q+YKGfB8RUnk=",
-    "last_login": "2021-03-05T10:35:35.127Z",
+    "last_login": "2021-04-03T05:23:22.841Z",
     "is_superuser": true,
     "username": "kunduz",
     "first_name": "",
