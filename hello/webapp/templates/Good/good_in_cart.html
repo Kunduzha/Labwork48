@@ -40,6 +40,22 @@
 </table>
         <h4> Общая сумма{{ total }}</h4>
 {% endif %}
+    <form action="{% url 'checkout' %}" method="post">
+    {% csrf_token %}
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Имя</label>
+  <input type="text" class="form-control" name="name" id="exampleFormControlInput1" placeholder="name">
+</div>
 
+    <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">address</label>
+  <input type="text" class="form-control" name="adress" id="exampleFormControlInput1" placeholder="address">
+</div>
+    <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Телефон</label>
+  <input type="text" class="form-control" name="phonenumber" id="exampleFormControlInput1" placeholder="phone">
+</div>
 
+    <button type="submit" class="btn btn-outline-success">Оформить заказ!</button>
+    </form>
 {%  endblock content %}

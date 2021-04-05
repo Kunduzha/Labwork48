@@ -43,7 +43,6 @@ class GoodInCart(models.Model):
      count = models.IntegerField(null= False, blank = False, validators = [MinValueValidator(0)])
 
      class Meta:
-         db_table = 'good_in_cart'
          verbose_name = 'Good'
          verbose_name_plural = 'Goods'
 
@@ -51,34 +50,34 @@ class GoodInCart(models.Model):
          return self.count * self.good.price
 
 
-class Order(models.Model):
-
-    name = models.CharField(max_length=31, verbose_name='Тег')
-
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
-
-
-    def __str__(self):
-
-        return self.name
-
-
-
-class GoodinCartOrder(models.Model):
-
-    good = models.ForeignKey('webapp.Good', related_name='good_orders', on_delete=models.CASCADE, verbose_name='Статья')
-
-    order = models.ForeignKey('webapp.Order', related_name='order_goods', on_delete=models.CASCADE, verbose_name='Тег')
+# class Order(models.Model):
+#
+#     name = models.CharField(max_length=31, verbose_name='Тег')
+#
+#     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
+#
+#
+#     def __str__(self):
+#
+#         return self.name
 
 
-    def __str__(self):
 
-        return "{} | {}".format(self.article, self.tag)
+# class GoodinCartOrder(models.Model):
+#
+#     good = models.ForeignKey('webapp.Good', related_name='good_orders', on_delete=models.CASCADE, verbose_name='Статья')
+#
+#     order = models.ForeignKey('webapp.Order', related_name='order_goods', on_delete=models.CASCADE, verbose_name='Тег')
+#
+#
+#     def __str__(self):
+#
+#         return "{} | {}".format(self.article, self.tag)
 
 class OrderGood(models.Model):
-    order = models.ForeignKey('webapp.Good', related_name='good', blank=False, null= False)
-    good = models.ForeignKey('webapp.Good', related_name='order', blank=False, null=False)
-    count = models.IntegerField(max_length=10, null=False, blank=False, verbose_name='количество')
+    order = models.ForeignKey('webapp.Order', blank=False, null= False, on_delete=models.CASCADE)
+    good = models.ForeignKey('webapp.Good', blank=False, null=False, on_delete=models.CASCADE)
+    count = models.IntegerField(null=False, blank=False, verbose_name='количество')
 
 class Order(BaseModel):
     good =models.ManyToManyField('webapp.Good', related_name ='order', blank=False)

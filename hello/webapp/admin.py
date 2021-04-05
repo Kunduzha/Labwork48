@@ -11,4 +11,4 @@ class GoodAdmin(admin.ModelAdmin):
 
 
 
-admin.site.register(Good, GoodAdmin)
+# admin.site.register(Good, GoodAdmin)
