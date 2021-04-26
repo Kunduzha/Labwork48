@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator
 # Create your models here.
 category_choice=[('new', 'новые'), ('old', 'просроченные')]
@@ -75,16 +76,28 @@ class GoodInCart(models.Model):
 #         return "{} | {}".format(self.article, self.tag)
 
 class OrderGood(models.Model):
-    order = models.ForeignKey('webapp.Order', blank=False, null= False, on_delete=models.CASCADE)
+    order = models.ForeignKey('webapp.Order', blank=False, null= False, on_delete=models.CASCADE, related_name='order_good')
     good = models.ForeignKey('webapp.Good', blank=False, null=False, on_delete=models.CASCADE)
     count = models.IntegerField(null=False, blank=False, verbose_name='количество')
 
+    def get_total(self):
+        return self.count * self.good.price
+
+
+
+
 class Order(BaseModel):
-    good =models.ManyToManyField('webapp.Good', related_name ='order', blank=False)
     name = models.CharField(max_length=50, null=False, blank=False, verbose_name='Имя')
     phonenumber = models.CharField(max_length=20, null=False, blank=False, verbose_name='контакты')
     adress = models.CharField(max_length=50, null=False, blank=False, verbose_name='адрес')
+    user = models.ForeignKey(User, blank=True, null=True, related_name='order', verbose_name='клиент', on_delete=models.CASCADE)
 
 
     def __str__(self):
-        return self.name
+        return f'{self.name} ({self.id})'
+
+    def order_total(self):
+        order_total=0
+        for i in self.order_good.all():
+            order_total+=i.get_total()
+        return order_total

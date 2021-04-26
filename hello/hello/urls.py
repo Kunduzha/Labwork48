@@ -14,9 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from webapp.views.goods import IndexView_good, Good_more, Good_add, Good_change, Good_delete, AddToCart, Cart, DeleteFromCart
-from webapp.views.orders import Checkout
+from webapp.views.orders import Checkout, CheckList
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +29,6 @@ urlpatterns = [
     path('in_cart/', Cart.as_view(), name = 'good_in_cart'),
     path('delete_from_cart/<int:pk>/', DeleteFromCart.as_view(), name='del_from_cart'),
     path('order/', Checkout.as_view(), name='checkout'),
+    path('checklist/', CheckList.as_view(), name='checklist'),
+    path('accounts/', include('accounts.urls')),
 ]

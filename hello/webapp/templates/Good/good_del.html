@@ -4,8 +4,8 @@
 {% block page_header %}Вы уверены, что хотите удалить этот товар {{ good.name }}?{% endblock page_header %}
 
 {% block content%}
-    <form action="{% url "del_good" good.id %}", method="POST">
+    <form action="{% url "del_good" goods.id %}", method="POST">
         {% include 'partial/good_form.html' with button_text="Да, я хочу удалить товар" %}
-        <a href="{% url "see_good" good.id %}">Отмена. Код красный. КОД КРАСНЫЙ!!</a>
+        <a href="{% url "see_good" goods.id %}">Отмена. Код красный. КОД КРАСНЫЙ!!</a>
     </form>
 {% endblock content %}

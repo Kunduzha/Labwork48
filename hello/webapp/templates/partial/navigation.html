@@ -2,7 +2,14 @@
 {#<li><a href="{% url "adding_list" %}"> добавить задачку</a></li>#}
 
 <div class="row mx-md-n5">
+    {% if user.is_authenticated %}
+     <div class="col px-md-5"><div class="p-3 border bg-light"><a href="{% url "accounts:logout" %}">Выход</a></div></div>
+    {% else %}
+     <div class="col px-md-5"><div class="p-3 border bg-light"><a href="{% url "accounts:login" %}">Вход</a></div></div>
+     <div class="col px-md-5"><div class="p-3 border bg-light"><a href="{% url "accounts:registration" %}">Регистрация</a></div></div>
+    {% endif %}
   <div class="col px-md-5"><div class="p-3 border bg-light"><a href="{% url "main_page" %}">список товаров</a></div></div>
   <div class="col px-md-5"><div class="p-3 border bg-light"><a href="{% url "add_good" %}"> добавить товар</a></div></div>
     <div class="col px-md-5"><div class="p-3 border bg-light"><a href="{% url "good_in_cart" %}"> В корзинку</a></div></div>
+ <div class="col px-md-5"><div class="p-3 border bg-light"><a href="{% url "checklist" %}"> Мои заказы</a></div></div>
 </div>

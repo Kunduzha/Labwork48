@@ -1,3 +1,4 @@
+from django.http import request
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.urls import reverse_lazy
 from webapp.models import Good, GoodInCart
@@ -7,6 +8,10 @@ from webapp.forms import Goodform, GoodDeleteForm, SimpleSearchForm
 from django.views.generic import View, TemplateView, RedirectView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.db.models import Q
 from django.utils.http import urlencode
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.sessions.models import Session
+from django.contrib.sessions.middleware import SessionMiddleware
+
 
 # Create your views here.
 
@@ -82,7 +87,7 @@ class Good_more(DetailView):
 #                       context={'form': form})  # если форма не валидна - отобразим форму с ошибками
 
 
-class Good_add(CreateView):
+class Good_add(LoginRequiredMixin, CreateView):
     template_name = 'Good/good_add.html'
     model = Good
     form_class = Goodform
@@ -122,7 +127,7 @@ class Good_add(CreateView):
 #         return render(request, 'Good/change_good.html', context={'form': form, 'good': good})  # если форма не валидна - отобразим форму с ошибками
 
 
-class Good_change(UpdateView):
+class Good_change(LoginRequiredMixin, UpdateView):
     model = Good
     template_name = 'Good/change_good.html'
     form_class = Goodform
@@ -151,7 +156,7 @@ class Good_change(UpdateView):
 #         return render(request, 'Good/good_del.html', context={'good': good, 'form': form})
 
 
-class Good_delete(DeleteView):
+class Good_delete(LoginRequiredMixin, DeleteView):
     template_name = 'Good/good_del.html'
     model = Good
     context_object_name = 'goods'
@@ -164,9 +169,15 @@ class Cart(ListView):
     model = GoodInCart
     context_object_name = 'carts'
 
+    def get_queryset(self):
+        cart = self.request.session.get('goods_in_cart', [])
+        print(cart)
+        return GoodInCart.objects.filter(pk__in=cart)
+
     def get_context_data(self, *, object_list=None, **kwargs):
+
         total = 0
-        for cart in GoodInCart.objects.all():
+        for cart in self.get_queryset():
             total+=cart.get_total()
         kwargs['total'] = total
         return super().get_context_data(**kwargs)
@@ -175,16 +186,20 @@ class Cart(ListView):
 
 class AddToCart(View):
     def get(self, request,pk, *args, **kwargs):
+        cart = request.session.get('goods_in_cart', [])
         good = get_object_or_404(Good, pk=pk)
         if good.remainder > 0:
             try:
-                good_cart =GoodInCart.objects.get(good=good)
+                print('czscsz')
+                good_cart =GoodInCart.objects.get(good__pk=good.pk, pk__in=cart)
                 good_cart.count +=1
                 good_cart.save()
             except:
-                GoodInCart.objects.create(good=good, count=1)
+                g = GoodInCart.objects.create(good=good, count=1)
+                cart.append(g.pk)
             good.remainder -=1
             good.save()
+            request.session['goods_in_cart'] = cart
         return redirect('main_page')
 
 class DeleteFromCart(DeleteView):
@@ -194,6 +209,9 @@ class DeleteFromCart(DeleteView):
     success_url = reverse_lazy('main_page')
 
     def post(self, request, *args, **kwargs):
+        session = self.request.session.get('good_in_cart', [])
+        session.remove(self.get_object().pk)
+
         cart = self.get_object()
         good = cart.good
         good.remainder += cart.count

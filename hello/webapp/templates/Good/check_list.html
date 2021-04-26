@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<p>{{ orders.count }}</p>
+{% for order in orders %}
+
+           <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Название</th>
+      <th scope="col">количество</th>
+        <th scope="col">сумма</th>
+        <th scope="col">Заказчик</th>
+
+    </tr>
+  </thead>
+      <tbody>
+
+
+                         {% for ordergood in order.order_good.all %}
+                           <tr>
+
+
+                            <td>{{ ordergood.good.name }}</td>
+                            <td>{{ ordergood.count }}</td>
+                           <td>{{ ordergood.get_total  }}</td>
+                           <td>{{ order.name }}| {{ order.phonenumber }} | {{ order.adress }}</td>
+
+
+
+                          </tr>
+
+                             {% endfor %}
+
+
+      </tbody>
+</table>
+    <p>total : {{ order.order_total }} </p>
+    {% endfor %}
+
+<h4> Общая сумма{{ total }}</h4>
+
+{% endblock %}
+
