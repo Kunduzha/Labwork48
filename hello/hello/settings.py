@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+from django.contrib import messages
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -124,3 +124,4 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL='main_page'
 LOGOUT_REDIRECT_URL='accounts:login'
 LOGIN_URL='accounts:login'
+MESSAGE_LEVEL = messages.DEBUG

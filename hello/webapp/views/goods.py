@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.http import request
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.urls import reverse_lazy
@@ -194,12 +195,16 @@ class AddToCart(View):
                 good_cart =GoodInCart.objects.get(good__pk=good.pk, pk__in=cart)
                 good_cart.count +=1
                 good_cart.save()
+                messages.add_message(self.request, messages.WARNING, 'Success')
             except:
                 g = GoodInCart.objects.create(good=good, count=1)
                 cart.append(g.pk)
             good.remainder -=1
             good.save()
             request.session['goods_in_cart'] = cart
+        else:
+            messages.add_message(self.request, messages.ERROR, 'error')
+
         return redirect('main_page')
 
 class DeleteFromCart(DeleteView):

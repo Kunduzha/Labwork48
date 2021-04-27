@@ -17,7 +17,7 @@
     "name": "хлеб",
     "description": "ржаное",
     "category": "old",
-    "remainder": 49,
+    "remainder": 47,
     "price": "20.00"
   }
 },
@@ -28,7 +28,7 @@
     "name": "хлеб",
     "description": "булка",
     "category": "old",
-    "remainder": 20,
+    "remainder": 17,
     "price": "15.00"
   }
 },
@@ -39,7 +39,7 @@
     "name": "сахар",
     "description": "кубики",
     "category": "new",
-    "remainder": 99,
+    "remainder": 0,
     "price": "50.00"
   }
 },
@@ -116,7 +116,7 @@
     "name": "Тося",
     "description": "kkkkk",
     "category": "new",
-    "remainder": 54,
+    "remainder": 40,
     "price": "45.00"
   }
 },
@@ -127,7 +127,7 @@
     "name": "Капуста",
     "description": "Овощь",
     "category": "new",
-    "remainder": 74,
+    "remainder": 35,
     "price": "4.00"
   }
 },
@@ -138,7 +138,7 @@
     "name": "сахар",
     "description": null,
     "category": "new",
-    "remainder": 77,
+    "remainder": 2,
     "price": "9.00"
   }
 },
@@ -151,6 +151,158 @@
     "category": "old",
     "remainder": 5,
     "price": "88.00"
+  }
+},
+{
+  "model": "webapp.goodincart",
+  "pk": 23,
+  "fields": {
+    "good": 14,
+    "count": 10
+  }
+},
+{
+  "model": "webapp.goodincart",
+  "pk": 24,
+  "fields": {
+    "good": 4,
+    "count": 5
+  }
+},
+{
+  "model": "webapp.goodincart",
+  "pk": 25,
+  "fields": {
+    "good": 13,
+    "count": 4
+  }
+},
+{
+  "model": "webapp.goodincart",
+  "pk": 26,
+  "fields": {
+    "good": 14,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.goodincart",
+  "pk": 27,
+  "fields": {
+    "good": 13,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.goodincart",
+  "pk": 28,
+  "fields": {
+    "good": 13,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.goodincart",
+  "pk": 29,
+  "fields": {
+    "good": 4,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.goodincart",
+  "pk": 30,
+  "fields": {
+    "good": 14,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.goodincart",
+  "pk": 31,
+  "fields": {
+    "good": 2,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.goodincart",
+  "pk": 32,
+  "fields": {
+    "good": 3,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.goodincart",
+  "pk": 33,
+  "fields": {
+    "good": 14,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.goodincart",
+  "pk": 34,
+  "fields": {
+    "good": 4,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.goodincart",
+  "pk": 35,
+  "fields": {
+    "good": 14,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.goodincart",
+  "pk": 36,
+  "fields": {
+    "good": 4,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.goodincart",
+  "pk": 37,
+  "fields": {
+    "good": 14,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.goodincart",
+  "pk": 38,
+  "fields": {
+    "good": 13,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.goodincart",
+  "pk": 39,
+  "fields": {
+    "good": 14,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.goodincart",
+  "pk": 40,
+  "fields": {
+    "good": 13,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.goodincart",
+  "pk": 44,
+  "fields": {
+    "good": 14,
+    "count": 4
   }
 },
 {
@@ -181,6 +333,222 @@
   }
 },
 {
+  "model": "webapp.ordergood",
+  "pk": 4,
+  "fields": {
+    "order": 3,
+    "good": 14,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 5,
+  "fields": {
+    "order": 4,
+    "good": 14,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 6,
+  "fields": {
+    "order": 4,
+    "good": 13,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 7,
+  "fields": {
+    "order": 4,
+    "good": 4,
+    "count": 2
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 8,
+  "fields": {
+    "order": 5,
+    "good": 4,
+    "count": 5
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 9,
+  "fields": {
+    "order": 5,
+    "good": 3,
+    "count": 2
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 10,
+  "fields": {
+    "order": 5,
+    "good": 13,
+    "count": 2
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 11,
+  "fields": {
+    "order": 5,
+    "good": 14,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 12,
+  "fields": {
+    "order": 6,
+    "good": 14,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 13,
+  "fields": {
+    "order": 6,
+    "good": 13,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 14,
+  "fields": {
+    "order": 7,
+    "good": 14,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 15,
+  "fields": {
+    "order": 7,
+    "good": 13,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 16,
+  "fields": {
+    "order": 8,
+    "good": 14,
+    "count": 2
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 17,
+  "fields": {
+    "order": 9,
+    "good": 14,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 18,
+  "fields": {
+    "order": 10,
+    "good": 4,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 19,
+  "fields": {
+    "order": 11,
+    "good": 14,
+    "count": 5
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 20,
+  "fields": {
+    "order": 11,
+    "good": 4,
+    "count": 3
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 21,
+  "fields": {
+    "order": 12,
+    "good": 2,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 22,
+  "fields": {
+    "order": 12,
+    "good": 14,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 23,
+  "fields": {
+    "order": 24,
+    "good": 4,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 24,
+  "fields": {
+    "order": 24,
+    "good": 13,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 25,
+  "fields": {
+    "order": 25,
+    "good": 4,
+    "count": 1
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 26,
+  "fields": {
+    "order": 26,
+    "good": 14,
+    "count": 9
+  }
+},
+{
+  "model": "webapp.ordergood",
+  "pk": 27,
+  "fields": {
+    "order": 26,
+    "good": 4,
+    "count": 2
+  }
+},
+{
   "model": "webapp.order",
   "pk": 1,
   "fields": {
@@ -189,7 +557,7 @@
     "name": "xx",
     "phonenumber": "xxx",
     "adress": "xxx",
-    "good": []
+    "user": null
   }
 },
 {
@@ -201,25 +569,235 @@
     "name": "zzzzzz",
     "phonenumber": "zzzzzzzz",
     "adress": "zzzzzzzz",
-    "good": []
+    "user": null
   }
 },
 {
-  "model": "auth.user",
-  "pk": 1,
+  "model": "webapp.order",
+  "pk": 3,
   "fields": {
-    "password": "pbkdf2_sha256$216000$phYcIWdQMh0t$CSwhnYvUiYMwWcPHgpNS//Yvp6e99z/Q+YKGfB8RUnk=",
-    "last_login": "2021-04-03T05:23:22.841Z",
-    "is_superuser": true,
-    "username": "kunduz",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": true,
-    "is_active": true,
-    "date_joined": "2021-03-05T10:32:37.575Z",
-    "groups": [],
-    "user_permissions": []
+    "created_at": "2021-04-09T13:14:25.961Z",
+    "updated_at": "2021-04-09T13:14:25.961Z",
+    "name": "Тося",
+    "phonenumber": "zzzzzzzz",
+    "adress": "zzzzzzzz",
+    "user": null
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 4,
+  "fields": {
+    "created_at": "2021-04-23T11:29:42.941Z",
+    "updated_at": "2021-04-23T11:29:42.941Z",
+    "name": "Тося",
+    "phonenumber": "",
+    "adress": "",
+    "user": null
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 5,
+  "fields": {
+    "created_at": "2021-04-23T13:26:31.559Z",
+    "updated_at": "2021-04-23T13:26:31.559Z",
+    "name": "axaxa",
+    "phonenumber": "xaxaaax",
+    "adress": "axaxa",
+    "user": null
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 6,
+  "fields": {
+    "created_at": "2021-04-26T09:13:27.853Z",
+    "updated_at": "2021-04-26T09:13:27.853Z",
+    "name": "Тося",
+    "phonenumber": "3333",
+    "adress": "zzzzzzzz",
+    "user": null
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 7,
+  "fields": {
+    "created_at": "2021-04-26T10:03:02.962Z",
+    "updated_at": "2021-04-26T10:03:02.962Z",
+    "name": "Тося",
+    "phonenumber": "888",
+    "adress": "zzzzzzzz",
+    "user": null
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 8,
+  "fields": {
+    "created_at": "2021-04-26T10:19:44.961Z",
+    "updated_at": "2021-04-26T10:19:44.961Z",
+    "name": "Капуста",
+    "phonenumber": "3333",
+    "adress": "zzzzzzzz",
+    "user": 1
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 9,
+  "fields": {
+    "created_at": "2021-04-26T10:21:07.810Z",
+    "updated_at": "2021-04-26T10:21:07.810Z",
+    "name": "Тося",
+    "phonenumber": "3333",
+    "adress": "zzzzzzzz",
+    "user": 1
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 10,
+  "fields": {
+    "created_at": "2021-04-26T10:22:10.185Z",
+    "updated_at": "2021-04-26T10:22:10.185Z",
+    "name": "",
+    "phonenumber": "",
+    "adress": "",
+    "user": 1
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 11,
+  "fields": {
+    "created_at": "2021-04-26T10:25:51.811Z",
+    "updated_at": "2021-04-26T10:25:51.811Z",
+    "name": "Тося",
+    "phonenumber": "3333",
+    "adress": "zzzzzzzz",
+    "user": 1
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 12,
+  "fields": {
+    "created_at": "2021-04-26T11:06:00.333Z",
+    "updated_at": "2021-04-26T11:06:00.333Z",
+    "name": "Второй заказ",
+    "phonenumber": "88888",
+    "adress": "ооооооо",
+    "user": 1
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 13,
+  "fields": {
+    "created_at": "2021-04-26T11:50:36.307Z",
+    "updated_at": "2021-04-26T11:50:36.307Z",
+    "name": "",
+    "phonenumber": "",
+    "adress": "",
+    "user": null
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 14,
+  "fields": {
+    "created_at": "2021-04-26T11:51:15.201Z",
+    "updated_at": "2021-04-26T11:51:15.201Z",
+    "name": "",
+    "phonenumber": "",
+    "adress": "",
+    "user": null
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 15,
+  "fields": {
+    "created_at": "2021-04-26T11:52:11.411Z",
+    "updated_at": "2021-04-26T11:52:11.411Z",
+    "name": "",
+    "phonenumber": "",
+    "adress": "",
+    "user": null
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 16,
+  "fields": {
+    "created_at": "2021-04-26T11:58:52.843Z",
+    "updated_at": "2021-04-26T11:58:52.843Z",
+    "name": "dvdsvsd",
+    "phonenumber": "vdvdvd",
+    "adress": "vdvdv",
+    "user": null
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 18,
+  "fields": {
+    "created_at": "2021-04-26T12:02:22.628Z",
+    "updated_at": "2021-04-26T12:02:22.631Z",
+    "name": "",
+    "phonenumber": "",
+    "adress": "",
+    "user": 1
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 19,
+  "fields": {
+    "created_at": "2021-04-26T12:02:53.549Z",
+    "updated_at": "2021-04-26T12:02:53.554Z",
+    "name": "fdfdsff",
+    "phonenumber": "dfasdfds",
+    "adress": "fdfsdf",
+    "user": 1
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 24,
+  "fields": {
+    "created_at": "2021-04-26T12:24:14.722Z",
+    "updated_at": "2021-04-26T12:24:14.726Z",
+    "name": "fefes",
+    "phonenumber": "fesfesf",
+    "adress": "fesfes",
+    "user": 2
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 25,
+  "fields": {
+    "created_at": "2021-04-26T12:30:22.419Z",
+    "updated_at": "2021-04-26T12:30:22.423Z",
+    "name": "grgre",
+    "phonenumber": "grgregre",
+    "adress": "gergre",
+    "user": 2
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 26,
+  "fields": {
+    "created_at": "2021-04-27T10:33:12.945Z",
+    "updated_at": "2021-04-27T10:33:12.949Z",
+    "name": "",
+    "phonenumber": "",
+    "adress": "",
+    "user": 2
   }
 }
 ]
