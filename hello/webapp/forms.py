@@ -3,6 +3,7 @@ from webapp.models import Good
 
 
 class Goodform(forms.ModelForm):
+
     class Meta:
         model=Good
         fields=('name', 'description', 'category', 'remainder', 'price')

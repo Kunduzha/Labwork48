@@ -186,20 +186,23 @@ class Cart(ListView):
 
 
 class AddToCart(View):
-    def get(self, request,pk, *args, **kwargs):
+    def post(self, request, pk, *args, **kwargs):
         cart = request.session.get('goods_in_cart', [])
         good = get_object_or_404(Good, pk=pk)
+        count = 1
+        if request.POST.get('count'):
+            count = int(request.POST.get('count'))
         if good.remainder > 0:
             try:
                 print('czscsz')
                 good_cart =GoodInCart.objects.get(good__pk=good.pk, pk__in=cart)
-                good_cart.count +=1
+                good_cart.count +=count
                 good_cart.save()
                 messages.add_message(self.request, messages.WARNING, 'Success')
             except:
-                g = GoodInCart.objects.create(good=good, count=1)
+                g = GoodInCart.objects.create(good=good, count=count)
                 cart.append(g.pk)
-            good.remainder -=1
+            good.remainder -=count
             good.save()
             request.session['goods_in_cart'] = cart
         else:

@@ -23,6 +23,7 @@
     <tr>
       <th scope="col">id</th>
       <th scope="col">name</th>
+      <th scope="col">количество</th>
     </tr>
   </thead>
   <tbody>
@@ -32,7 +33,11 @@
 
             <th>{{ good.id }}</th>
             <td><a href="{% url "see_good" good.id %}">{{ good.name }}</a></td>
-               <td><a href="{% url "add_to_cart" good.id %}">Добавить в корзинку</a></td>
+               <form action="{% url 'add_to_cart' good.pk %}" method="post">
+                   {% csrf_token %}
+            <td><input type="number" name="count"></td>
+            <td><button type="submit">Добавить в корзинку</button></td>
+                   </form>
 {#            <button type="button" class="btn btn-primary {% url "add_to_cart" good.id %}">Добавить в корзинку</button>#}
 
           </tr>

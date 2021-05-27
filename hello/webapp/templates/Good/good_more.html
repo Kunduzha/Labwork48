@@ -9,12 +9,12 @@
 {% block page_header %}Товар {{ good.id }}{% endblock page_header %}
 {% block content %}
     <p>Name: {{ good.name }}</p>
-    <p>Price: {{ good.price }}</p>
+
     <p>Category: {{ good.get_category_display }}</p>
     <p>Description: {{ good.description }}</p>
     <p>Remainder: {{ good.remainder }}</p>
     <td><a href="{% url "add_to_cart" good.id %}">Добавить в корзинку</a></td>
 
-    <img src="{% static "image/balloon.jpg" %}" alt="" class="img">
+
 {% endblock content %}
 

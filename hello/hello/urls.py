@@ -25,10 +25,11 @@ urlpatterns = [
     path('add/', Good_add.as_view(), name='add_good'),
     path('edit/<int:pk>/', Good_change.as_view(), name='change_good'),
     path('delete/<int:pk>/', Good_delete.as_view(), name='del_good'),
-    path('add_to_cart/<int:pk>', AddToCart.as_view(), name = 'add_to_cart'),
-    path('in_cart/', Cart.as_view(), name = 'good_in_cart'),
+    path('add_to_cart/<int:pk>', AddToCart.as_view(), name='add_to_cart'),
+    path('in_cart/', Cart.as_view(), name='good_in_cart'),
     path('delete_from_cart/<int:pk>/', DeleteFromCart.as_view(), name='del_from_cart'),
     path('order/', Checkout.as_view(), name='checkout'),
     path('checklist/', CheckList.as_view(), name='checklist'),
     path('accounts/', include('accounts.urls')),
+    path('api/v2/', include('api_v2.urls')),
 ]
