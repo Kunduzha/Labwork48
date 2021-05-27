@@ -10,7 +10,15 @@ class GoodSerializer(serializers.ModelSerializer):
         read_only_fields = ('id',)
 
 
-class OrderGoodSerializer(serializers.ModelSerializer):
+class OrderGoodSerializerForPost(serializers.ModelSerializer):
+
+    class Meta:
+        model = OrderGood
+        fields = ('id', 'order', 'good', 'count')
+        read_only_fields = ('id', 'order')
+
+
+class OrderGoodSerializerForGet(serializers.ModelSerializer):
     good = GoodSerializer()
 
     class Meta:
@@ -20,9 +28,17 @@ class OrderGoodSerializer(serializers.ModelSerializer):
 
 
 
+class OrderSerializerForGET(serializers.ModelSerializer):
+    order_good = OrderGoodSerializerForGet(many=True)
 
-class OrderSerializer(serializers.ModelSerializer):
-    order_good = OrderGoodSerializer(many=True)
+    class Meta:
+        model = Order
+        fields = ('user', 'name', 'phonenumber', 'adress', 'created_at', 'updated_at', 'order_good')
+
+
+
+class OrderSerializerForPOST(serializers.ModelSerializer):
+    order_good = OrderGoodSerializerForPost(many=True)
 
     class Meta:
         model = Order
@@ -36,9 +52,4 @@ class OrderSerializer(serializers.ModelSerializer):
             good_in_order = OrderGood.objects.create(order=order, good=goods['good'], count=goods['count'])
             print(good_in_order)
         return validated_data
-
-
-
-
-
 
